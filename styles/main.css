@@ -416,8 +416,8 @@ body[data-aos-delay="200"] [data-aos].aos-animate {
 
 [data-aos][data-aos][data-aos-duration="250"],
 body[data-aos-duration="250"] [data-aos] {
-  -webkit-transition-duration: 0.25s;
-  transition-duration: 0.25s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
 }
 
 [data-aos][data-aos][data-aos-delay="250"],
@@ -428,8 +428,8 @@ body[data-aos-delay="250"] [data-aos] {
 
 [data-aos][data-aos][data-aos-delay="250"].aos-animate,
 body[data-aos-delay="250"] [data-aos].aos-animate {
-  -webkit-transition-delay: 0.25s;
-  transition-delay: 0.25s;
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
 }
 
 [data-aos][data-aos][data-aos-duration="300"],
@@ -470,8 +470,8 @@ body[data-aos-delay="350"] [data-aos].aos-animate {
 
 [data-aos][data-aos][data-aos-duration="400"],
 body[data-aos-duration="400"] [data-aos] {
-  -webkit-transition-duration: 0.4s;
-  transition-duration: 0.4s;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
 }
 
 [data-aos][data-aos][data-aos-delay="400"],
@@ -482,8 +482,8 @@ body[data-aos-delay="400"] [data-aos] {
 
 [data-aos][data-aos][data-aos-delay="400"].aos-animate,
 body[data-aos-delay="400"] [data-aos].aos-animate {
-  -webkit-transition-delay: 0.4s;
-  transition-delay: 0.4s;
+  -webkit-transition-delay: 0.3s;
+  transition-delay: 0.3s;
 }
 
 [data-aos][data-aos][data-aos-duration="450"],
@@ -1791,7 +1791,7 @@ h1 {
 }
 
 .site-header {
-  position: absolute;
+  /* position: absolute; */
   top: 0;
   left: 0;
   right: 0;
@@ -1845,7 +1845,6 @@ p {
 .desc {
   font-size: 32px;
   color: white;
-  white-space: nowrap;
 }
 
 a {
@@ -1865,21 +1864,121 @@ a {
 }
 
 #workList {
-  height: 100%;
+  /* height: 100%; */
 }
 
 #workList ul {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+
+  padding: 0;
+  padding-top: 40px;
+  margin: 0;
+
+  height: 100%;
+
+  align-items: center;
+}
+
+#workList h1 {
+  padding-left: 15px;
+
+  font-size: 36px;
+
+  font-family: "GoogleSans";
+
+  margin-bottom: 60px;
 }
 
 #workList ul li {
-  flex-basis: 25%;
+  flex-basis: 33.3%;
 
   padding: 0 15px;
 
   list-style-type: none;
+
+  margin-bottom: 30px;
+}
+
+#workList ul li a {
+  width: 100%;
+
+  display: inline-block;
+
+  position: relative;
+
+  height: 0;
+  padding-top: 66%;
+
+  overflow: hidden;
+}
+
+#workList ul li a:after {
+  content: "";
+
+  background-color: rgba(0, 0, 0, 0.75);
+
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#workList ul li a:hover img {
+  transform: scale(1.1);
+
+  transition: transform 0.3s ease-in;
+}
+
+#workList ul li a:hover h2 {
+  opacity: 1;
+
+  transition: opacity 0.3s ease-in;
+}
+
+#workList ul li a:hover:after {
+  opacity: 1;
+
+  transition: opacity 0.3s ease-in;
+}
+
+#workList ul li h2 {
+  position: absolute;
+
+  margin: 0 auto;
+
+  width: 75%;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  text-align: center;
+
+  opacity: 0;
+
+  z-index: 2;
+
+  transition: opacity 0.3s ease-out;
+}
+
+#workList ul li a img {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+
+  transform: scale(1);
+
+  transition: transform 0.3s ease-out;
 }
 
 @media (max-width: 1024px) {
@@ -1891,6 +1990,27 @@ a {
   }
   .desc {
     white-space: normal;
+  }
+  #workList ul li {
+    flex-basis: 50%;
+  }
+  #workList ul li a:after {
+    opacity: 1;
+  }
+  #workList ul li h2 {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  #workList ul li {
+    flex-basis: 100%;
+
+    padding: 0;
   }
 }
 
